@@ -99,19 +99,7 @@ def recursive_levenshtein(x, y, /):
     this gain in time makes the function unresponsive to
     on-the-fly adjustments of edit costs (so there aren't any).
 
-    The Levenshtein algorithm is used to calculate the distance between
-    two words as the minimum number of single-character edits (deletions,
-    insertions, substitutions) required to transform one word into another.
-
-    Every edit comes at a cost: 1 for each deleted or inserted character,
-    2 for every substitution. The last cost is higher since substitution
-    can be viewed as the combination of deletion and insertion.
-
-    Examples:
-      "tale" > "ale":         1 (deletion)
-      "tree" > "three":       1 (insertion)
-      "cell" > "hell":        2 (substitution)
-      "kitten" > "sitting":   5 (two substitutions and one insertion)
+    See details on Levenshtein distance in the function `levenshtein`.
 
     Positional-only params:
       x: a string to be transformed (the initial word).
