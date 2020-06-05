@@ -154,7 +154,7 @@ def hamming(x, y, /):
       The number of mismatched characters in the strings.
     """
 
-    if len(x) == len(y):
+    if len(x) != len(y):
         raise ValueError("The strings should be of the same length")
 
     return sum(x[i] != y[i] for i in range(len(x)))
