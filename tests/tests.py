@@ -126,6 +126,18 @@ class DistanceTest(unittest.TestCase):
         self.assertEqual(x, y)
         self.assertLess(elapsed, elapsed_rec)
 
+    def test_hamming(self):
+        """The Hamming distance performance test."""
+
+        with self.assertRaises(ValueError):
+            hamming("different", "lengths")
+
+        self.assertEqual(hamming("ABC", "ABC"), 0)
+        self.assertEqual(hamming("ABc", "ABC"), 1)
+        self.assertEqual(hamming("cat", "dog"), 3)
+        self.assertEqual(hamming("class", "fleet"), 4)
+        self.assertEqual(hamming("taxi", "ixat"), 4)
+
 
 if __name__ == "__main__":
     unittest.main()
