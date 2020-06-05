@@ -5,7 +5,7 @@
 ### Contents
 
 Modules:
-- [distances.py]() - typographical errors (orthography)
+- [distances.py](https://github.com/onuf/spellchecker/blob/master/distances.py) - typographical errors (orthography)
 - []() - cognitive errors, homophones (pronunciation)
 
 ### Useful links
