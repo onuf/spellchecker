@@ -138,3 +138,23 @@ def recursive_levenshtein(x, y, /):
         sub += cost["sub"]
 
     return min(del_, ins, sub)
+
+
+def hamming(x, y, /):
+    """
+    This function calculates the Hamming distance between two strings.
+    They must have equal length, since only substitution is allowed.
+    All symbols are compared by their position in the strings.
+
+    Positional-only params:
+      x: a string to be transformed (the initial word).
+      y: a string to transform into (the target word).
+
+    Returns:
+      The number of mismatched characters in the strings.
+    """
+
+    if len(x) == len(y):
+        raise ValueError("The strings should be of the same length")
+
+    return sum(x[i] != y[i] for i in range(len(x)))
