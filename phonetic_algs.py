@@ -15,9 +15,14 @@ from string import ascii_letters
 def soundex(s, /):
     """
     An implementation of the phonetic algorithm Soundex.
+    Words that sound similarly have (almost) the same indices:
+      than      T500
+      then      T500
+      licence   L252
+      license   L252
 
     Letters are grouped into the following clusters:
-      aeiouyhw    0
+      aeiouyhw    0*
       bfpv        1
       cgjkqsxz    2
       dt          3
@@ -25,7 +30,7 @@ def soundex(s, /):
       mn          5
       r           6
     The first group, which mainly consists of English vowels (+ yhw),
-    is discarded in the course of indexing the input text by sound.
+    is discarded in the course of indexing of the input text by sound.
 
     Positional-only params:
       s: a string to encode.
@@ -45,10 +50,11 @@ def soundex(s, /):
     # Add the first letter
     sndx = s[0]
 
+    # Letters of the same group separated by h/w are coded as a single number
     codes = {'A': '0', 'B': '1', 'C': '2', 'D': '3', 'E': '0', 'F': '1',
-             'G': '2', 'H': '0', 'I': '0', 'J': '2', 'K': '2', 'L': '4',
+             'G': '2', 'H': '', 'I': '0', 'J': '2', 'K': '2', 'L': '4',
              'M': '5', 'N': '5', 'O': '0', 'P': '1', 'Q': '2', 'R': '6',
-             'S': '2', 'T': '3', 'U': '0', 'V': '1', 'W': '0', 'X': '2',
+             'S': '2', 'T': '3', 'U': '0', 'V': '1', 'W': '', 'X': '2',
              'Y': '0', 'Z': '2'}
 
     # Replace all letters (the first one included) with digits
