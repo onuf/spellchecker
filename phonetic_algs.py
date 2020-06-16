@@ -20,6 +20,12 @@ def soundex(s, /):
       then      T500
       licence   L252
       license   L252
+    The edit distance between the obtained indices would be less
+    than that between the spellings of original words. Compare
+    words from these two sentences first with Levenshtein alone
+    and then by computing Soundex results before Leveshtein:
+      PLEZ CNOKE IF AN RNSR IS NOT REQID.
+      Please knock if an answer is not required.
 
     Letters are grouped into the following clusters:
       aeiouyhw    0*
