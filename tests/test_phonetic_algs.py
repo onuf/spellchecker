@@ -7,6 +7,7 @@ Tests for phonetic algorithms.
 
 import unittest
 from phonetic_algs import soundex
+from distances import levenshtein
 
 
 class SoundexTest(unittest.TestCase):
@@ -36,6 +37,29 @@ class SoundexTest(unittest.TestCase):
         self.assertEqual(soundex("Rubin"), "R150")
         self.assertEqual(soundex("Tymczak"), "T522")
         self.assertEqual(soundex("Pfister"), "P236")
+
+    def test_levenshtein(self):
+        """
+        For certain types of errors, Levenshtein edit distance between words'
+        spellings is greater than the distance between their Soundex indices.
+        """
+
+        sent1 = 'PLEZ CNOKE IF AN RNSR IS NOT REQID'
+        toks1 = sent1.lower().split()
+        sent2 = 'Please knock if an answer is not required'
+        toks2 = sent2.lower().split()
+        total = sum(levenshtein(*pair) for pair in zip(toks1, toks2))
+        sndx_total = sum(levenshtein(soundex(pair[0]), soundex(pair[1]))
+                         for pair in zip(toks1, toks2))
+        self.assertGreater(total, sndx_total)
+
+        homophones = (('tail', 'tale'), ('right', 'write'),
+                      ('flower', 'flour'), ('break', 'brake'),
+                      ('accept', 'except'), ('you\'re', 'your'))
+        total2 = sum(levenshtein(*pair, sub_cost=1) for pair in homophones)
+        sndx_total2 = sum(levenshtein(soundex(pair[0]), soundex(pair[1]))
+                          for pair in homophones)
+        self.assertGreaterEqual(total2, sndx_total2)
 
 
 if __name__ == "__main__":
