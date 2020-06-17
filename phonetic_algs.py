@@ -12,7 +12,7 @@ language and, therefore, are language-specific.
 from string import ascii_letters
 
 
-def soundex(s, /):
+def soundex(s, /, length=4):
     """
     An implementation of the phonetic algorithm Soundex.
     Words that sound similarly have (almost) the same indices:
@@ -49,7 +49,7 @@ def soundex(s, /):
     """
 
     if not s:
-        return "0000"
+        return "0" * length
 
     # Keep only ASCII letters and switch them to upper case
     s = "".join(char.upper() for char in s if char in ascii_letters)
@@ -71,10 +71,10 @@ def soundex(s, /):
                               if char != sndx[i-1])
 
     # Remove coded vowels and pad the string with trailing zeros
-    sndx = sndx.replace("0", "") + "0000"
+    sndx = sndx.replace("0", "") + "0" * length
 
     # Remove the first digit if it corresponds to the first letter
     if codes[sndx[0]] == sndx[1]:
         sndx = sndx[0] + sndx[2:]
 
-    return sndx[:4]
+    return sndx[:length]
