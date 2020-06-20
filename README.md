@@ -11,13 +11,13 @@ The former are not real words of language, e.g., *google* instead of *googol*, *
 
 Non-words are easier to detect: we simply check if a word is in our dictionary. For real words, we should assume that each word might be an error and pick the candidate corrections that maximize the probability of the whole sentence. Though in practice, it boils down to an assumption that only *n* words per sentence are misused, thus, we suggest only *n* corrections.
 
-When generating candidates, 
+When generating candidates, we search for real words that have similar spelling and/or pronunciation and form a set of candidates. That's where we choose the best correction(s) from.
 
 ### Contents
 
 Modules:
-- [distances.py](https://github.com/onuf/spellchecker/blob/master/distances.py) - typographical errors (orthography)
-- []() - cognitive errors, homophones (pronunciation)
+- [distances.py](https://github.com/onuf/spellchecker/blob/master/distances.py) contains distances between two strings, which are useful to catch misprints and typing errors (orthography).
+- [phonetic_algs.py](https://github.com/onuf/spellchecker/blob/master/phonetic_algs.py) includes phonetic algorithms, which help deal with cognitive errors and homophones (pronunciation).
 
 ### Useful links
 
