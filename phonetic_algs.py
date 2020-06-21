@@ -41,8 +41,11 @@ def soundex(s, /, length=4):
     Positional-only params:
       s: a string to encode.
 
+    Keyword params:
+      length: the length of an index, including the initial letter.
+
     Returns:
-      A four-character alphanumeric sequence in the format {X123}.
+      A four*-character alphanumeric sequence in the format {X123}.
       It starts at a single letter followed by three digits, with
       the only exception for an empty input string {0000}. Also,
       the output will be padded with trailing 0s if it's too short.
