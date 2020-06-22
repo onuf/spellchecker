@@ -3,6 +3,9 @@ abc_en.txt
 freq_d.json
 sndx_d.json
 
+# Evaluation data
+wiki_common_misspellings.txt
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
