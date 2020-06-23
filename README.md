@@ -1,6 +1,6 @@
-### Spelling correction in a nutshell
-
 Spelling correction has become a typical task as people write more and more texts daily. Some took to this feature of text processing tools to the point of not daring to use them without it. Spell checks have made their way to lots of programs, from email clients to search engines and virtual keyboards. That's why it might be interesting to find out how all of this works.
+
+### Spelling correction in a nutshell
 
 We can break down spell checking into two main subtasks: error detection and error correction. The correction part may take on different forms, from simple autocorrect to one or more pop-up suggestions. The course of actions often depends on a system's confidence or established policies.
 
@@ -20,6 +20,15 @@ When generating candidates, we search for real words that have similar spelling 
 Modules:
 - [distances.py](https://github.com/onuf/spellchecker/blob/master/distances.py) contains distances between two strings, which are useful to catch misprints and typing errors (orthography).
 - [phonetic_algs.py](https://github.com/onuf/spellchecker/blob/master/phonetic_algs.py) includes phonetic algorithms, which help deal with cognitive errors and homophones (pronunciation).
+- [spellchecker.ipynb](https://github.com/onuf/spellchecker/blob/master/spellchecker.ipynb) -- a Jupyter Notebook with explanations.
+
+### Things to try
+
+- Train a classifier to distinguish between the varieties of English (American, Australian, British, Canadian, etc.), which can ensure consistency in spelling. Given a solid piece of text, you can decide on a subset of dictionary to refer to.
+- Improve the error model. In practice, some letters are more likely to be mistyped than others. See this [confusion matrix](https://web.stanford.edu/class/cs124/lec/spelling.pdf#page=22). For example, vowels often tend to be confused. The keybord layout appears to have an impact as well. Plus, there might be a research somewhere on typical misspellings made by dyslexic people. All these things can be used for model development.
+- Work on the noisy channel model: the language model or the channel model might have very different ranges. An additional parameter may solve the problem.
+- Implement other phonetic algorithms or Jaro-Winkler distance.
+- DL for spelling correction.
 
 ### Useful links
 
