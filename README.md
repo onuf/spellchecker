@@ -9,7 +9,7 @@ In spelling error detection, there are two types of errors:
 - *NWEs*, or *non-word errors*, 
 - *RWEs*, or *real-word errors*.
 
-The former are not real words of language, e.g., *google* instead of *googol*, *fime* instead of *fame*, *fire*, or *dime*. The real-word errors, as the name suggests, are valid words used in the wrong context, when some other word was implied, for example, *to-too-two*, *piece-peace*, *three-tree*. Some mistakes of this type are trivial typing errors, but most of them appear to be cognitive errors, which stem from similar pronunciation. Words that sound the same are called *homophones*. Phonetic algorithms are better-equipped to detect them.
+The former are not real words of language, e.g., *google* instead of *googol*, *fime* instead of *fame*, *fire*, or *dime*. The real-word errors, as the name suggests, are valid words used in the wrong context, when some other word was implied, for example, *to-too-two*, *piece-peace*, *three-tree*. Some mistakes of this type are trivial typing errors, others appear to be cognitive errors, which stem from similar pronunciation. Words that sound the same are called *homophones*. Phonetic algorithms are better-equipped to detect them.
 
 Non-words are easier to detect: we simply check if a word is in our dictionary. For real words, we should assume that each word might be an error and pick the candidate corrections that maximize the probability of the whole sentence. Though in practice, it boils down to an assumption that only *n* words per sentence are misused, thus, we suggest only *n* corrections.
 
